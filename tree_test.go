@@ -4,17 +4,17 @@ import "testing"
 
 func TestTree(t *testing.T) {
 
-	nt := newTree("A", 1)
-	ntb := nt.addTree("B")
-	ntb.addTree("H")
-	ntb.addTree("J")
+	nt := New("A")
+	ntb := nt.AddTree("B")
+	ntb.AddTree("H")
+	ntb.AddTree("J")
 
-	ntc := nt.addTree("C")
-	ntc.addTree("D")
-	nte := ntc.addTree("E")
-	ntc.addTree("F")
+	ntc := nt.AddTree("C")
+	ntc.AddTree("D")
+	nte := ntc.AddTree("E")
+	ntc.AddTree("F")
 
-	nte.addTree("G")
+	nte.AddTree("G")
 
 	t.Log(nt)
 

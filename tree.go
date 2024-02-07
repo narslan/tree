@@ -6,7 +6,7 @@ import (
 )
 
 // NewTree creates an emty tree.
-func NewTree(v any) *tree {
+func New(v any) *tree {
 
 	return newTree(v, 0)
 }
@@ -26,7 +26,7 @@ type tree struct {
 	forest []*tree //forest is a set of trees.
 }
 
-func (t *tree) addTree(v any) *tree {
+func (t *tree) AddTree(v any) *tree {
 	nt := newTree(v, t.depth+1)
 	t.degree = t.degree + 1
 	nt.index = fmt.Sprintf("%s.%d", t.index, len(t.forest)+1)
