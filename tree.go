@@ -1,4 +1,4 @@
-package cuesheet
+package tree
 
 import (
 	"fmt"
