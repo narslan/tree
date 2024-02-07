@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// NewTree creates an emty tree.
+// NewTree creates an empty tree.
 func New(v any) *tree {
 
 	return newTree(v, 0)
