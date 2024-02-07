@@ -5,28 +5,28 @@ import (
 	"strings"
 )
 
-// NewTree creates an empty tree.
-func New(v any) *tree {
+// NewTree creates an empty Tree.
+func New(v any) *Tree {
 
 	return newTree(v, 0)
 }
 
-func newTree(v any, depth int) *tree {
+func newTree(v any, depth int) *Tree {
 
-	return &tree{value: v, depth: depth, degree: 0, index: "1", forest: make([]*tree, 0)}
+	return &Tree{value: v, depth: depth, degree: 0, index: "1", forest: make([]*Tree, 0)}
 }
 
-// tree represents the root node of a tree
+// Tree represents the root node of a Tree
 // It contains the subtrees.
-type tree struct {
+type Tree struct {
 	value  any     //TODO(@narslan): use generics
 	depth  int     //depth measures the distance between a node and the root
-	degree int     //degree describes how many tree the forest have.
-	index  string  //index is the node description for displaying tree in dewey notation.
-	forest []*tree //forest is a set of trees.
+	degree int     //degree describes how many Tree the forest have.
+	index  string  //index is the node description for displaying Tree in dewey notation.
+	forest []*Tree //forest is a set of trees.
 }
 
-func (t *tree) AddTree(v any) *tree {
+func (t *Tree) AddTree(v any) *Tree {
 	nt := newTree(v, t.depth+1)
 	t.degree = t.degree + 1
 	nt.index = fmt.Sprintf("%s.%d", t.index, len(t.forest)+1)
@@ -34,7 +34,7 @@ func (t *tree) AddTree(v any) *tree {
 	return nt
 }
 
-func (t *tree) String() string {
+func (t *Tree) String() string {
 	var b strings.Builder
 	b.WriteString(fmt.Sprintf("index: %s depth: %d degree:%d value: %v\n", t.index, t.depth, t.degree, t.value))
 
@@ -48,7 +48,7 @@ func (t *tree) String() string {
 	return b.String()
 }
 
-// func (t *tree) Dewey() string {
+// func (t *Tree) Dewey() string {
 // 	var b strings.Builder
 // 	b.WriteString(fmt.Sprintf("%d %v\n", t.depth, t.value))
 
