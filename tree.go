@@ -48,6 +48,19 @@ func (t *Tree) String() string {
 	return b.String()
 }
 
+func (t *Tree) Traverse() []any {
+	a := make([]any, 0)
+	a = append(a, t.value)
+	if len(t.forest) == 0 {
+		return a
+	} else {
+		for _, v := range t.forest {
+			a = append(a, v.value)
+		}
+	}
+	return a
+}
+
 // func (t *Tree) Dewey() string {
 // 	var b strings.Builder
 // 	b.WriteString(fmt.Sprintf("%d %v\n", t.depth, t.value))
