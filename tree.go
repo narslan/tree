@@ -48,16 +48,17 @@ func (t *Tree) String() string {
 	return b.String()
 }
 
+// Traverse walks into the tree in depth-first manner.
 func (t *Tree) Traverse() []any {
 	a := make([]any, 0)
+
 	a = append(a, t.value)
-	if len(t.forest) == 0 {
-		return a
-	} else {
+	if len(t.forest) != 0 {
 		for _, v := range t.forest {
-			v.Traverse()
+			a = append(a, v.Traverse()...)
 		}
 	}
+
 	return a
 }
 

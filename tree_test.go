@@ -33,11 +33,17 @@ func TestTreeTraverse(t *testing.T) {
 
 	nte.AddTree("G")
 
-	s := []string{"A", "B", "C", "H", "J", "D", "E", "F", "G"}
-	for i, v := range nt.Traverse() {
-		if s[i] != v {
-			t.Fatalf("expected %s got %s", s[i], v)
+	s := []string{"A", "B", "H", "J", "C", "D", "E", "G", "F"}
+	w := nt.Traverse()
+
+	if len(w) != len(s) {
+		t.Fatalf("expected %d elements of tree but got %d", len(s), len(w))
+	}
+	for i := range s {
+		if s[i] != w[i] {
+			t.Fatalf("expected %s got %s", s[i], w[i])
 		}
+
 	}
 
 }
