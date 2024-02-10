@@ -55,7 +55,7 @@ func (t *Tree) Traverse() []any {
 		return a
 	} else {
 		for _, v := range t.forest {
-			a = append(a, v.value)
+			v.Traverse()
 		}
 	}
 	return a
