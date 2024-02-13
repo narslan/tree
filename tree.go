@@ -19,7 +19,7 @@ func newTree(v any, depth int) *Tree {
 // Tree represents the root node of a Tree
 // It contains the subtrees.
 type Tree struct {
-	value  any     //TODO(@narslan): use generics
+	value  any
 	depth  int     //depth measures the distance between a node and the root
 	degree int     //degree describes how many Tree the forest have.
 	index  string  //index is the node description for displaying Tree in dewey notation.
